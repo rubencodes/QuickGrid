@@ -9,7 +9,7 @@ function QuickGrid() {
 	
 		this.init = function() {
 				this.canvas 								= document.createElement("canvas");
-				this.canvas.id  						= "GridLayer";
+				this.canvas.id  						= "QuickGrid";
 				this.canvas.height 					= window.outerHeight;
 				this.canvas.width  					= window.outerWidth;
 				this.canvas.style.zIndex 		= "100000";
@@ -100,9 +100,14 @@ function QuickGrid() {
 		}
 		
 		this.cleanUp = function() {
-				this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-				document.body.removeChild(this.canvas);
-				document.body.removeChild(this.title);
+				if(document.getElementById('QuickGrid')) {
+						this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+						document.body.removeChild(this.canvas);
+						document.body.removeChild(this.title);
+						this.canvas = null;
+						this.title  = null;
+						return true;
+				} else false;
 		}
 }
 
@@ -110,6 +115,9 @@ if(!quickGridChromeExtension) {
 		var quickGridChromeExtension = new QuickGrid();
 				quickGridChromeExtension.init();
 } else {
-		quickGridChromeExtension.cleanUp();
-		quickGridChromeExtension = null;
+		if(quickGridChromeExtension.cleanUp())
+				quickGridChromeExtension = null;
+		else {
+				quickGridChromeExtension.init();
+		}
 }
