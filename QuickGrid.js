@@ -89,7 +89,6 @@ function QuickGrid() {
 				this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 				document.body.removeChild(this.canvas);
 				document.body.removeChild(this.title);
-				document.body.removeChild(this.alphaSlider);
 		}
 }
 
