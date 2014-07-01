@@ -1,0 +1,20 @@
+{
+	  "name": "QuickGrid",
+	  "description": "This extension overlays a grid on the current page to aid in graphic design & proper alignment of HTML elements. The transparency of the grid can be adjusted as can the size of the grid squares. All code can be found at .",
+	  "version": "1.0",
+	  "permissions": [
+	    "activeTab"
+	  ],
+	  "background": {
+	    "scripts": ["background.js"],
+	    "persistent": false
+	  },
+	  "browser_action": {
+	    "default_title": "QuickGrid",
+			"default_icon": "icon-48.png"
+	  },
+		"icons": { "16": "icon-16.png",
+							 "48": "icon-48.png",
+							"128": "icon-128.png" },
+	  "manifest_version": 2
+}
