@@ -8,31 +8,19 @@ function QuickGrid() {
 		this.alpha 	= 10;
 	
 		this.init = function() {
-				this.canvas 								= document.createElement("canvas");
-				this.canvas.id  						= "QuickGrid";
-				this.canvas.height 					= window.outerHeight;
-				this.canvas.width  					= window.outerWidth;
-				this.canvas.style.zIndex 		= "100000";
-				this.canvas.style.position 	= "fixed";
-				this.canvas.style.visibility= "visible";
-				this.canvas.style.top 			= "0";
-				this.canvas.style.left 			= "0";
-				this.canvas.style.margin 		= "0";
-				this.canvas.style.padding 	= "0";
-				this.canvas.style.background= "rgba(0,0,0,0)";
-				this.canvas.addEventListener(
-						"click",
-						function(event) {
-								quickGrid.canvas.style.visibility = "hidden";
-								try {
-										document.elementFromPoint(event.pageX, event.pageY).click();
-										quickGrid.cleanUp();
-								} catch(err) {
-										quickGrid.canvas.style.visibility= "visible";
-								}
-						},
-						false
-				);
+				this.canvas 										= document.createElement("canvas");
+				this.canvas.id  								= "QuickGrid";
+				this.canvas.height 							= window.outerHeight;
+				this.canvas.width  							= window.outerWidth;
+				this.canvas.style.zIndex 				= "100000";
+				this.canvas.style.position 			= "fixed";
+				this.canvas.style.visibility		= "visible";
+				this.canvas.style.top 					= "0";
+				this.canvas.style.left 					= "0";
+				this.canvas.style.margin 				= "0";
+				this.canvas.style.padding 			= "0";
+				this.canvas.style.background		= "rgba(0,0,0,0)";
+				this.canvas.style.pointerEvents	= "none";
 				this.context = this.canvas.getContext('2d');
 				document.body.appendChild(this.canvas);
 				
@@ -107,7 +95,7 @@ function QuickGrid() {
 						this.canvas = null;
 						this.title  = null;
 						return true;
-				} else false;
+				} else return false;
 		}
 }
 
@@ -116,8 +104,6 @@ if(!quickGridChromeExtension) {
 				quickGridChromeExtension.init();
 } else {
 		if(quickGridChromeExtension.cleanUp())
-				quickGridChromeExtension = null;
-		else {
-				quickGridChromeExtension.init();
-		}
+			quickGridChromeExtension = null;
+		else quickGridChromeExtension.init();
 }
