@@ -38,10 +38,12 @@ function QuickGrid() {
 				this.title.style.height					= "100px";
 				this.title.style.margin 				= "0";
 				this.title.style.padding 				= "20px";
-				this.title.style.textAlign			= "center";
-				this.title.style.fontFamily			= "Arial";
-				this.title.style.fontWeight			= "normal";
 				this.title.style.fontSize				= "20px";
+				this.title.style.textAlign			= "center";
+				this.title.style.lineHeight			= "1.1";
+				this.title.style.fontWeight			= "normal";
+				this.title.style.fontFamily			= "Arial";
+				this.title.style.textTransform	= "none";
 				this.title.style.background		 	= "rgba(0,0,0,0.6)";
 				this.title.style.borderRadius 	= "5px";
 				document.body.appendChild(this.title);
