@@ -10,8 +10,8 @@ function QuickGrid() {
 		this.init = function() {
 				this.canvas 										= document.createElement("canvas");
 				this.canvas.id  								= "QuickGrid";
-				this.canvas.height 							= window.outerHeight;
-				this.canvas.width  							= window.outerWidth;
+				this.canvas.height 							= window.innerHeight;
+				this.canvas.width  							= window.innerWidth;
 				this.canvas.style.zIndex 				= "100000";
 				this.canvas.style.position 			= "fixed";
 				this.canvas.style.visibility		= "visible";
@@ -63,9 +63,16 @@ function QuickGrid() {
 					 false
 				);
 				this.title.appendChild(this.alphaSlider);
+			
+				window.onresize = function(event) {
+						quickGrid.canvas.height	= window.innerHeight;
+						quickGrid.canvas.width	= window.innerWidth;
+						quickGrid.drawGrid(quickGrid.alpha);
+				};
 		}
 		
 		this.drawGrid = function(alpha) {
+				this.alpha = alpha;
 				alpha = alpha/100;
 
 				this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);

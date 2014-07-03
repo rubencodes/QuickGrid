@@ -1,7 +1,7 @@
 {
 	  "name": "QuickGrid",
 	  "description": "Overlay a grid on any page to aid in designing pixel-perfect sites. Code can be found at: https://github.com/rmartinez93/QuickGrid",
-	  "version": "1.5",
+	  "version": "1.6",
 	  "permissions": [
 	    "activeTab"
 	  ],
